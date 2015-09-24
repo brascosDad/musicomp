@@ -1,0 +1,29 @@
+{
+  "name": "musicomp",
+  "version": "0.0.0",
+  "authors": [
+    "ERNEST SON <sunnee5150@gmail.com>"
+  ],
+  "description": "tool for creating top level song structure",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.4.6",
+    "angular-bootstrap": "~0.13.4",
+    "angular-mocks": "~1.4.6",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5",
+    "bootstrap-touch-carousel": "~0.8.0",
+    "hammerjs": "hammer.js#~2.0.4",
+    "lodash": "~3.10.1"
+  }
+}
