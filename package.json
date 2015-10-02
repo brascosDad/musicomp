@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "a tool to create a song structure",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sunnee5150/musicomp"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -16,15 +20,24 @@
     "gulp-jasmine": "^2.1.0",
     "gulp-jshint": "^1.11.2",
     "gulp-karma": "0.0.4",
+    "gulp-ng-templates": "0.0.6",
     "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.4.1",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.10",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-firefox-launcher": "^0.1.6",
     "karma-jasmine": "^0.3.6",
+    "karma-opera-launcher": "^0.3.0",
     "karma-phantomjs-launcher": "^0.2.1",
     "phantomjs": "^1.9.18"
   },
   "scripts": {
     "start": "iojs server.js"
+  },
+  "dependencies": {
+    "angular": "^1.4.6"
   }
 }

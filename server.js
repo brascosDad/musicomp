@@ -8,4 +8,4 @@
 	server.listen(9000);
 
 	console.log('the server is running');
-}())
+}());
