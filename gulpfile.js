@@ -6,10 +6,12 @@ var gulp = require('gulp'),
 	//sass = require('gulp-sass'),
 	sourcemaps = require('gulp-sourcemaps'),
 	karmaServer = require('karma').Server,
-	ngTemplates = require('gulp-ng-templates');
+	ngTemplates = require('gulp-ng-templates'),
+	del = require('del'),
+	htmlmin = require('htmlmin');
 
 gulp.task('bundle-app', function() {
-	return gulp.src(['src/app.js', 'src/MainCtrl.js'])
+	return gulp.src(['src/app.js', 'src/**/*.js'])
 		.pipe(sourcemaps.init())
 			.pipe(concat('app.min.js'))
 			.pipe(uglify())
@@ -18,7 +20,7 @@ gulp.task('bundle-app', function() {
 });
 
 gulp.task('bundle-lib', function() {
-	return gulp.src(['node_modules/angular/angular.min.js'])
+	return gulp.src(['node_modules/angular/angular.min.js', 'node_modules/angular-route/angular-route.min.js'])
 		.pipe(concat('lib.min.js'))
 		.pipe(gulp.dest('public'));
 });
@@ -45,28 +47,35 @@ gulp.task('test', function (done) {
 
 gulp.task('clean', function() {
   //del all the dist folder as well as compiled and gulp-created files
-	gulp.del(['public/dist'])
+	del(['public/dist'])
 })
 
 
  
-gulp.task('templates', ['clean'], function () {
-    return gulp.src(paths.templates)
-        .pipe(htmlmin({collapseWhitespace: true}))
+gulp.task('templates', function () {
+    return gulp.src('src/**/*.html')
+        //.pipe(htmlmin({collapseWhitespace: true}))
         .pipe(ngTemplates({
             filename: 'templates.js',
-            module: 'App/templates',
+            module: "mcTemplates",
+            standalone: true ,
             path: function (path, base) {
                 return path.replace(base, '').replace('/templates', '');
             }
         }))
-        .pipe(gulp.dest('public/js'));
+        .pipe(gulp.dest('./src'));
 });
 
 gulp.task('watchFiles', function () {
 	//gulp.watch('src/**/*.scss', ['compileSass']);
-	gulp.watch('src/**.js', ['bundle-app']);
+	gulp.watch('src/**/*.js', ['templates','bundle-app']);
 }); 
+
+// gulp.task("angularTemplates", function () {
+//   return gulp.src(paths.app + "*/.html")
+//   .pipe(angularTemplates({ module: "mcTemplates", standalone: true }))
+//   .pipe(gulp.dest(+ "_generatedTemplates/"));
+// });
 
 //this doesn't start a server, it just serves/turns on watchFiles
 gulp.task('serve', ['watchFiles'])
