@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 	del = require('del'),
 	htmlmin = require('htmlmin');
 
-gulp.task('bundle-app', function() {
+gulp.task('bundle-app', ['templates'], function() {
 	return gulp.src(['src/app.js', 'src/**/*.js'])
 		.pipe(sourcemaps.init())
 			.pipe(concat('app.min.js'))
@@ -42,12 +42,12 @@ gulp.task('test', function (done) {
   new karmaServer({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
-  }, done).start();
+  }, done).start(); 
 });
 
 gulp.task('clean', function() {
   //del all the dist folder as well as compiled and gulp-created files
-	del(['public/dist'])
+	del(['public/**/*.*']) 
 })
 
 
@@ -62,7 +62,7 @@ gulp.task('templates', function () {
             path: function (path, base) {
                 return path.replace(base, '').replace('/templates', '');
             }
-        }))
+        }))  
         .pipe(gulp.dest('./src'));
 });
 
