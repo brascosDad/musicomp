@@ -3,12 +3,13 @@
 var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
-	//sass = require('gulp-sass'),
+	sass = require('gulp-sass'),
 	sourcemaps = require('gulp-sourcemaps'),
 	karmaServer = require('karma').Server,
 	ngTemplates = require('gulp-ng-templates'),
 	del = require('del'),
-	htmlmin = require('htmlmin');
+	htmlmin = require('htmlmin'),
+	lr = require('tiny-lr')();
 
 gulp.task('bundle-app', ['templates'], function() {
 	return gulp.src(['src/app.js', 'src/**/*.js'])
@@ -16,17 +17,19 @@ gulp.task('bundle-app', ['templates'], function() {
 			.pipe(concat('app.min.js'))
 			.pipe(uglify())
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest('public'));
+		.pipe(gulp.dest('public/dist'));
 });
 
 gulp.task('bundle-lib', function() {
 	return gulp.src(['node_modules/angular/angular.min.js', 'node_modules/angular-route/angular-route.min.js'])
-		.pipe(concat('lib.min.js'))
-		.pipe(gulp.dest('public'));
+		.pipe(sourcemaps.init())
+			.pipe(concat('lib.min.js'))
+		.pipe(sourcemaps.write('./'))	
+		.pipe(gulp.dest('public/dist'));
 });
 
 // gulp.task('compileSass', function() {
-//   return gulp.src("public/scss/application.scss")
+//   return gulp.src("xxxxxx/scss/application.scss")
 //       .pipe(maps.init())
 //       .pipe(sass())
 //       .pipe(maps.write('./'))
@@ -34,10 +37,7 @@ gulp.task('bundle-lib', function() {
 // })
 
 
-
-/**
- * Run test once and exit
- */
+//karma test run
 gulp.task('test', function (done) {
   new karmaServer({
     configFile: __dirname + '/karma.conf.js',
@@ -47,11 +47,9 @@ gulp.task('test', function (done) {
 
 gulp.task('clean', function() {
   //del all the dist folder as well as compiled and gulp-created files
-	del(['public/**/*.*']) 
+	del(['public/dist']) 
 })
 
-
- 
 gulp.task('templates', function () {
     return gulp.src('src/**/*.html')
         //.pipe(htmlmin({collapseWhitespace: true}))
@@ -68,14 +66,48 @@ gulp.task('templates', function () {
 
 gulp.task('watchFiles', function () {
 	//gulp.watch('src/**/*.scss', ['compileSass']);
+	//gulp.watch('src/**/*.html', notifyLiveReload);
 	gulp.watch('src/**/*.js', ['templates','bundle-app']);
 }); 
 
-// gulp.task("angularTemplates", function () {
-//   return gulp.src(paths.app + "*/.html")
-//   .pipe(angularTemplates({ module: "mcTemplates", standalone: true }))
-//   .pipe(gulp.dest(+ "_generatedTemplates/"));
-// });
+gulp.task("build", ['templates', 'bundle-app', 'bundle-lib'], function() {
+	return gulp.src(['src/*.js', 'src/*.html'])
+		.pipe(gulp.dest('public/dist'));
 
-//this doesn't start a server, it just serves/turns on watchFiles
-gulp.task('serve', ['watchFiles'])
+});
+
+	function startExpress() {
+
+	  	var express = require('express');
+		var bodyParser = require ('body-parser');
+		var server = express();
+
+		server.use(require('connect-livereload')())
+		server.use(express.static('public/dist'));
+		server.listen(9000);
+
+		console.log('the server is running');
+	}
+
+	function startLiveReload() {
+		lr.listen(35729);
+	}
+
+	function notifyLiveReload(event) {
+		// `gulp.watch()` events provide an absolute path
+  		// so we need to make it relative to the server root
+  		var fileName = require('path').relative('public/dist', event.path);
+
+  		lr.changed({
+  			body: {
+  				files: [fileName]
+  			}
+  		});
+	}
+
+gulp.task('serve', ['watchFiles'], function () {
+
+  startExpress();
+  startLiveReload();
+  gulp.watch('src/**/*.html', notifyLiveReload);
+});

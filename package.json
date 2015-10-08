@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "body-parser": "^1.14.0",
+    "connect-livereload": "^0.5.3",
     "del": "^2.0.2",
     "express": "^4.13.3",
     "gulp": "^3.9.0",
@@ -34,7 +35,8 @@
     "karma-jasmine": "^0.3.6",
     "karma-opera-launcher": "^0.3.0",
     "karma-phantomjs-launcher": "^0.2.1",
-    "phantomjs": "^1.9.18"
+    "phantomjs": "^1.9.18",
+    "tiny-lr": "^0.2.0"
   },
   "scripts": {
     "start": "iojs server.js"

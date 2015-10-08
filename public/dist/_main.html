@@ -1,0 +1,68 @@
+<div id="define-song">
+			
+			<form name='define-form' class="form" novalidate>
+				<fieldset>
+					<legend>Define Your Song</legend>
+					<p class="song_title">
+						<label for="song_title">Song Title:</label>
+						<input type="text" name="song-title" id="song_title" ng-model='song.title' required>
+					</p>
+					<div ng-show ='define-form.$submitted'>
+						<div ng-show ="form.song-title.$error.required">Please enter a song title</div>
+					</div>
+					<p class="bpm">
+						<label for="bpm">BPM (Beats per Minute):</label>
+						<input type="number" name="bpm" min="30" max="200" 	step="1" value="60" ng-model='song.bpm' required>
+					</p>
+					<p class="time_sig">
+						<label for="time_sig">Time Signature:</label>
+						<select name="time_sig" ng-model='song.timeSig'>
+							<option value="4/4">4/4</option>
+							<option value="3/4">3/4</option>
+							<option value="2/4">2/4</option>
+							<option value="6/8">6/8</option>
+							<option value="7/8">7/8</option>
+						</select required>
+					</p>
+					<p class="num_instr">
+						<label for="num_instr">Number of Instruments:</label>
+						<input type="number" name="num_instr" min="1" max="8" 	step="1" value="4" ng-model='song.numInstruments' required>
+					</p>
+					<p class="submit">
+						<button type="button" value="Create" data-ng-click='submit()'>Create</button>
+					</p>
+				</fieldset>				
+			</form>	
+			<input type='text' data-ng-model='test.title' />
+			<p>test = {{ test.title }}</p>
+		</div>
+		<div id="open-existing-song">
+			<table id="file-dir">
+				<caption>Open An Existing Song</caption>
+				<tr>
+				  <th>Filename</th>
+				  <th>Date Modified</th>
+				  <th>Modified By</th>
+				  <th>Date Created</th>
+				</tr>
+				<tr>
+				  <td><a href="###">Song1</a></td>
+				  <td>03/14/72</td>
+				  <td>me</td>
+				  <td>03/14/72</td>
+				</tr>
+				<tr>
+				  <td><a href="###">Song2</a></td>
+				  <td>03/14/12</td>
+				  <td>Dave French</td>
+				  <td>03/14/12</td>
+				</tr>
+				<tr>
+				  <td><a href="###">Song3</a></td>
+				  <td>03/14/15</td>
+				  <td>Tom Smith</td>
+				  <td>03/14/15</td>
+				</tr>
+			</table>
+
+		</div>
