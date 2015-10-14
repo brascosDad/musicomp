@@ -5,13 +5,13 @@
   			"$routeProvider", function (router) {
   				router.when('/', {  
   					controller: "MainCtrl",	
-    			  templateUrl: '_main.html'  
+    			  templateUrl: "defineModule/_define.html"  
     			})    
 
-    			.otherwise({ 
-    			  redirectTo: '/' 
-    			}); 
+    			//.otherwise({ 
+    			//  redirectTo: '/' 
+    			//}); 
   				} 
   			]);
 
-}());
+}());  
