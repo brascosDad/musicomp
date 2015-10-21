@@ -8,10 +8,15 @@
     			  templateUrl: "defineModule/_define.html"  
     			})    
 
-    			//.otherwise({ 
-    			//  redirectTo: '/' 
-    			//}); 
+          .when('/arrange', {
+            controller: "ArrangeCtrl",
+            templateUrl: "arrangeModule/_arrange.html"
+          })  
+
+    			.otherwise({ 
+    			  redirectTo: '/' 
+    			}); 
   				} 
   			]);
 
-}());  
+}());
