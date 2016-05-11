@@ -66,10 +66,10 @@
                 var self = this,
                     defer = $q.defer();
 
-                songService["delete"](song, function(message) {
+                songService["delete"]({ id: song._id }, function(data) {
 
                     self.song = undefined;
-                    defer.resolve(message);
+                    defer.resolve(data.d);
                 });
 
                 return defer.promise;

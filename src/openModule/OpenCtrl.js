@@ -4,9 +4,13 @@
 		function($scope, $location, $mdSidenav, songModel) {
 
 			//get all songs, empty search criteria being used, set collection via promise obj
-			songModel.getSongs({}).then(function(songs) {
+			var getSongs = function () {
+				songModel.getSongs({}).then(function(songs) {
 				$scope.songs = songs;
-			});
+				});
+			};
+
+			getSongs();
 
 			$scope.menuItems = [
 				{
@@ -30,13 +34,20 @@
 					href: '#arrange'
 				}
 			];
-			$scope.arrangementView = function (index) {
-				$location.path('/arrange/' + $scope.songs[index]._id);
-			};
+			// $scope.arrangementView = function (index) {
+			// 	$location.path('/arrange/' + $scope.songs[index]._id);
+			// };
 
-			$scope.editSong = function (index) {
-				$location.path('/define/' + $scope.songs[index]._id);
-			}
+			// $scope.editSong = function (index) {
+			// 	$location.path('/define/' + $scope.songs[index]._id);
+			// }
+			$scope.deleteSong = function (song) {
+				songModel.deleteSong(song).then(function(response) {
+					if(response.wasSuccessful && response.id === song._id) {
+						$scope.songs = _.without($scope.songs, song);
+					}
+				});
+			};
 
 			$scope.createNewSong = function () {
 

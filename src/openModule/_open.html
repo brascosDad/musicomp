@@ -8,10 +8,10 @@
 					<p>Created: {{ song.createdAt | date:shortDate }}</p>
 				</div>
 				<div class='song-title-options'>
-					<md-button>
+					<a href="#/define/{{song._id}}"><md-button>
 						<md-icon class='material-icons'>edit</md-icon>
-					</md-button>
-					<md-button>
+					</md-button></a>
+					<md-button data-ng-click='deleteSong(song)'>
 						<md-icon class='material-icons'>delete</md-icon>
 					</md-button>
 				</div>

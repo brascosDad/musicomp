@@ -37,9 +37,9 @@ class SongsController {
     deleteSong(request, response) {
 
         const id = request.params.id;
-        Song.remove(id).exec()
+        Song.findByIdAndRemove(id).exec()
             .then(() => {
-                responseHelper.sendResponse(response, "Successfully removed song #" + id);
+                responseHelper.sendResponse(response, { wasSuccessful: true, id: id });
             })
             .catch((err) => {
                 responseHelper.sendError(response, err);
