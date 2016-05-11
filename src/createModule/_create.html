@@ -2,7 +2,7 @@
 	<div class='create-top-head' layout='row' layout-align='center center'>
 		<div class='mdl-selectfield' layout='column'>
         <label class='section-pick' ng-hide='currentSection.name'>Pick Section</label>
-        	<select data-ng-model="currentSection" data-ng-options='section as section.name for section in song.sections'>
+        	<select data-ng-model="currentSection" data-ng-options='section as section.name for section in song.sections' data-ng-change="changedSection = !changedSection">
         	</select>
           <md-input-container data-ng-show='editName'>
             <label>Section Name</label>

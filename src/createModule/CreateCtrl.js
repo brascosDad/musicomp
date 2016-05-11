@@ -36,6 +36,8 @@
 				}
 		];
 
+		$scope.changedSection = false;
+
 		$scope.buildRowsfromSignature = function () {
 			var rows = new Array($scope.rowCount);
 
@@ -129,9 +131,15 @@
 
 		//only reset measures when time signatures actually changed to avoid onload/route change updates
 		$scope.$watch("currentSection.timeSig", function(newValue, oldValue) {
-			if (newValue && oldValue && parseInt(newValue, 10) !== parseInt(oldValue, 10)) {
-				$scope.changeSignature();
+
+			if (!$scope.changedSection) {
+				if (newValue && oldValue && parseInt(newValue, 10) !== parseInt(oldValue, 10)) {
+					$scope.changeSignature();
+				}
+			} else {
+				$scope.changedSection = !$scope.changedSection; //reset for future toggles
 			}
+
 		});
 		
 	}]);
