@@ -8,6 +8,8 @@ Service to provide a band with a way to compose song ideas in a structured forma
 2. Complete the 3 remaining UI functional requirements (...)
 3. Add travis CI support, code coverage, & code climate information?
 4. Cleanup package.json dependencies
+5. Make sure create controller is updating URI with section change
+6. Fix issues where toggling between sections within create controller resets blocks
 
 #### sample config.js
 module.exports = {
