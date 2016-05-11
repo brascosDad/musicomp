@@ -1,0 +1,12 @@
+//Definings
+@import "_variables.scss";
+@import "_mixins.scss";
+
+//Global Styles
+@import "_globals.scss";
+
+//Page Specifics
+@import "_open.scss";
+@import "_define.scss";
+@import "_create.scss";
+@import "_arrange.scss";

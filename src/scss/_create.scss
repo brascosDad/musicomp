@@ -1,0 +1,153 @@
+.create-top-head {
+	margin: 10px 0;
+	/*position: fixed;*/
+}
+
+select {
+  font-family: inherit;
+  background-color: transparent;
+  width: 200px;
+  padding: $select-padding 0;
+  font-size: $select-font-size;
+  color: $select-color;
+  border: none;
+  border-bottom: 1px solid $select-border-color;
+}
+
+label.section-pick {
+	position: absolute;
+	top: 3px;
+	left: 10px;
+}
+
+/* Remove focus */
+select:focus {
+  outline: none
+}
+
+/* Use custom arrow */
+.mdl-selectfield select {-webkit-appearance: none}
+.mdl-selectfield {
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  position: relative;
+    &:after {
+        position: absolute;
+        top: 0.75em;
+        right: 0.5em;
+        /* Styling the down arrow */
+        width: 0;
+        height: 0;
+        padding: 0;
+        content: '';
+        border-left: .375em solid transparent;
+        border-right: .375em solid transparent;
+        border-top: .5625em solid $select-border-color;
+        pointer-events: none;
+    }
+}
+
+.section-name {
+	margin-top: 15px;
+}
+
+.create-timesig-select {
+	padding: 5% 5%;
+}
+
+.member-container {
+	margin: 15px 0px;
+	/*position: fixed;*/
+}
+
+div.member-div {
+	margin-top: 40px;
+	margin-bottom: 15px;
+	/*transform: rotate(-90deg);*/
+	/*height: 120px;*/
+}
+
+.orange {
+	background-color: orange;
+}
+
+.blue {
+	background-color: blue;
+}
+
+.yellow {
+	background-color: yellow;
+}
+
+.green {
+	background-color: green;
+}
+
+.purple {
+	background-color: purple;
+}
+
+.red {
+	background-color: red;
+}
+
+.brown {
+	background-color: brown;
+}
+
+.olive {
+	background-color: olive;
+}
+
+div.member-col-head {
+	transform: rotate(-45deg);
+	white-space: nowrap;
+	/*height: 140px;*/
+	/*margin-right: 40px;*/
+	width: 20px;
+	text-align: center;
+}
+
+div.table-container {
+	/*margin-top: 20px;*/
+}
+.measure-header {
+	background-color: black;
+
+	h2 {
+		font-family: 'Oleo Script', cursive;
+		color: $off-white;
+		margin: .5em 0;
+		}
+}
+
+.odd {
+	background-color: LightGray;
+}
+
+.plus-minus-div {
+
+	span {
+		font-family: 'Oleo Script', cursive;
+	}
+	/*background-color: white;*/
+	/*text-align: center;*/
+}
+
+div.row-container {
+	min-height: 44px;
+	margin-left: 2%
+}
+
+input.chord-input {
+	box-sizing: border-box;
+}
+
+div.music-block {
+	/*width: 57px;*/
+	/*height: 57px;*/
+	border: thin solid;
+}
+
+.create-fab {
+	padding: 5% 0 10% 0;
+}

@@ -1,0 +1,48 @@
+<div layout="column" data-ng-cloak class='md-inline-form'>
+	<md-content layout-padding>
+  <form name="songForm">
+		<md-input-container class='define-form-input'>
+			<label>Song Title</label>
+			<input md-maxlength='40' required name='title' data-ng-model='song.title'>
+      <div data-ng-messages="songForm.title.$error">
+          <div data-ng-message="required">This is required.</div>
+          <div data-ng-message="md-maxlength">The name has to be less than 40 characters long.</div>
+      </div>
+		</md-input-container>    
+
+    <md-divider></md-divider>
+
+    <h1 class="md-title">Instruments</h1>
+    <div layout='row' data-ng-repeat= 'instrument in song.instruments track by $index'>
+      	<md-input-container>
+			     <label>Band Member</label>
+			     <input data-ng-model='instrument.member'>
+		    </md-input-container>
+		    <md-input-container>
+        	<label>Instrument</label>
+          <input data-ng-model='instrument.type'>
+        	<!-- <md-select data-ng-model="instrument.type">
+          		<md-option data-ng-repeat="instrument in instrumentChoices">
+            	{{instrument}}
+          		</md-option>
+        	</md-select> -->
+      	</md-input-container>
+      	
+
+          <md-button class="md-fab md-mini" aria-label="remove instrument" data-ng-click='removeInstrument()'>
+              <md-icon class='material-icons'>remove</md-icon>
+          </md-button>
+		</div>
+		<section layout='row' layout-align='end center'>
+			<md-button class="md-fab md-mini" aria-label="add instrument" data-ng-click='addInstrument()'>
+        		<md-icon class='material-icons'>person_add</md-icon>
+            <md-tooltip md-direction="left">
+              Add Instrument
+            </md-tooltip>
+     		</md-button>
+			<md-button class="md-raised md-primary" data-ng-click='submit(song)'>Next</md-button>
+		</section>
+    </form>
+	</md-content>
+</div>
+		

@@ -1,0 +1,53 @@
+<div class='song-details' layout='column' layout-align='center center'>
+ 	<md-card class='section-container' layout='row' layout-align='space-between' data-ng-repeat='section in song.sections track by $index' data-ng-init='sectionIndex = $index' flex>
+ 		<div class='arrow-container' layout='column' layout-align='space-around center' flex='15'>
+ 			<md-button class="md-icon-button md-primary" aria-label="move section up" data-ng-click='sectionUp($index)'>
+       		 	<md-icon class='material-icons'>keyboard_arrow_up</md-icon>
+       		 	<!-- <md-tooltip md-direction="bottom">Move Section Up</md-tooltip> -->
+      		</md-button>            		
+
+      		<md-button class="md-icon-button md-primary" aria-label="move section down" data-ng-click='sectionDown($index)'>
+       		 	<md-icon class='material-icons'>keyboard_arrow_down</md-icon>
+       		 	<!-- <md-tooltip md-direction="bottom">Move Section Down</md-tooltip> -->
+      		</md-button> 			
+ 		</div>
+
+ 		<div class='section-content' layout='column' layout-align='start stretch' flex='75'>
+ 			<h2>{{section.name}}</h2>
+ 			<div flex class='blocks-container' layout='row' layout-align='start center'>
+ 				<div data-ng-style="{'background-color': section.sectionColor}" data-ng-class='blockClass(section.timeSig)' data-ng-repeat='measure in section.measures'></div>
+ 			</div>
+                  <div class='section-menu'>
+                  <md-menu md-position-mode='target-right target'>
+ 		   	     <md-button class="md-icon-button md-primary" aria-label="section sub menu" data-ng-click='$mdOpenMenu()'>
+       	    	 	   <md-icon class='material-icons'>menu</md-icon>
+      	           	</md-button>
+                        <md-menu-content width='4'>
+                              <md-menu-item>
+                                    <md-button data-ng-click='editSection(song,sectionIndex)'>
+                                          <p flex>Edit Section</p>
+                                    </md-button>
+                              </md-menu-item>
+                              <md-menu-item>
+                                    <md-button data-ng-click='dupeSection(sectionIndex)'>
+                                          <p flex>Duplicate</p>
+                                    </md-button>
+                              </md-menu-item>
+                              <md-menu-item>
+                                    <md-button data-ng-click='createNewFrom(song,sectionIndex)'>
+                                          <p flex>Create New From</p>
+                                    </md-button>
+                              </md-menu-item>
+                              <md-divider></md-divider>
+                              <md-menu-item>
+                                    <md-button data-ng-click='deleteSection($event,sectionIndex)'>
+                                          <p flex>Delete Section</p>
+                                    </md-button>
+                              </md-menu-item>
+                        </md-menu-content>
+
+                  </md-menu> 	
+                  </div>		
+ 		</div>
+  	</md-card>
+ </div>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app='musiComp'>
+<head>
+	<title>Musicomp</title> 
+	
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />    
+	<meta name="description" content="This app will help musicians plan out the structure of a song.">
+	<meta name="keywords" content="music, planner, song map">
+
+	<!-- 	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
+	 -->
+ 	<link rel="stylesheet" type="text/css" href="angular-material.min.css">
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Oleo+Script:400,700' rel='stylesheet' type='text/css'>
+
+	<!-- <link rel="stylesheet" href="./node_modules/angular-material/angular-material.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="./main.css">
+</head>
+<body layout='column'>
+		<md-toolbar layout="row" layout-align='start center' class='md-whiteframe-6dp'>
+			<md-button class="md-icon-button md-primary md-tall" aria-label="Settings" flex='10' ng-controller='OpenCtrl' ng-click='toggleMenu()'>
+        		<i class='material-icons md-48 md-light'>menu</i>
+      		</md-button>
+			<h1 class='title' flex='80'>MusiComp</h1>
+			<span flex='10'></span>
+		</md-toolbar>
+
+		<div layout='row' flex>
+			<md-sidenav md-component-id='left' layout='column' class='md-sidenav-left md-whiteframe-z2' >
+				<md-toolbar class='md-primary'>
+					
+					<h2 class='menu-title'>Menu</h2>
+					
+				</md-toolbar>
+				<md-list ng-controller='OpenCtrl'>
+					<md-list-item ng-repeat='item in menuItems'>
+					 	<i class='material-icons'>{{item.iconName}}</i>
+					 	<a href="{{item.href}}" class='menu-item'><span ng-click='toggleMenu()'>{{item.name}}</span></a>
+					</md-list-item>
+				</md-list>
+			</md-sidenav>		
+		
+			<div data-ng-view flex></div>
+
+		</div>			
+
+<script src="lib.min.js"></script>
+<script src="app.min.js"></script>
+
+
+</body>
+</html>
