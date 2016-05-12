@@ -8,44 +8,6 @@
                 return this;
             };
 
-            // Model.prototype.addSectionToScope = function($scope) {
-                
-            //     var self = this,
-            //         songId = $routeParams.songId,
-            //         sectionId = $routeParams.sectionId;
-
-            //     if (!self.song) {
-            //         self.getSongs$scope.currentSection = song.section
-            //     }             
-
-            // };
-
-            Model.prototype.addSongToScope = function($scope) {
-
-                var self = this,
-                    id = $routeParams.songId,
-                    sectionId = $routeParams.sectionId,
-                    setSectionId = function() { 
-                        if (sectionId) {
-                            $scope.currentSection = _.find($scope.song.sections, {_id: sectionId});
-                            $scope.currentSection.sectionColor = $scope.setColor();
-                            //$scope.changeSignature();
-                        }                        
-                    };
-
-                //if the browser is refreshed
-                if (!self.song) {
-                    self.getSongs({ id: id }).then(function(song) {
-                        $scope.song = song;
-                        setSectionId();
-                    });
-                } else {
-                    //via redirect/location.path
-                    $scope.song = self.song;
-                    setSectionId();
-                }
-            };
-
             Model.prototype.getSongs = function(searchObj) {
 
                 var self = this,
@@ -59,6 +21,27 @@
                     }
                     defer.resolve(self.songs);
                 });
+
+                return defer.promise;
+            };
+
+            Model.prototype.addSongToScope = function($scope) {
+
+                var self = this,
+                    defer = $q.defer(),
+                    id = $routeParams.songId;
+
+                //if the browser is refreshed
+                if (!self.song) {
+                    self.getSongs({ id: id }).then(function(song) {
+                        $scope.song = song;
+                        defer.resolve($scope.song);
+                    });
+                } else {
+                    //via redirect/location.path
+                    $scope.song = self.song;
+                    defer.resolve($scope.song);
+                }
 
                 return defer.promise;
             };

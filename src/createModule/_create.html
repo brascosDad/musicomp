@@ -6,7 +6,7 @@
     </md-input-container>
 		<div class='mdl-selectfield' data-ng-if='showDropdown' layout='column'>
       <label class='section-pick'>Pick Section</label>
-      <select data-ng-model="currentSection" data-ng-options='section as section.name for section in song.sections' data-ng-change="changedSection = !changedSection">
+      <select data-ng-model="currentSection" data-ng-options='section as section.name for section in song.sections'>
       </select>
           
     </div>
@@ -34,7 +34,7 @@
 
       	<md-input-container flex='45' class='create-timesig-select'>
     		<label>Time Signature</label>
-    		<md-select data-ng-model="currentSection.timeSig">
+    		<md-select data-ng-model="currentSection.timeSig" data-ng-change="changeSignature()">
       			<md-option data-ng-repeat="timeSig in timeSigs" value='{{timeSig.value}}'>
         			{{timeSig.name}}
       			</md-option>

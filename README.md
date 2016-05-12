@@ -14,6 +14,7 @@ Service to provide a band with a way to compose song ideas in a structured forma
 5. Make sure create controller is updating URI with section change
 6. Need to add save functionality to Arrange Ctrl functions
 7. Refactor ArrangeCtrl using lodash
+8. Use client-side songModel to build new section (since it's in 2 places)
 
 #### sample config.js
 module.exports = {
