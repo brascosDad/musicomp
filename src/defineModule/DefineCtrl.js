@@ -22,11 +22,25 @@
 				$scope.song.instruments.splice(lastItem);
 			};
 
-			$scope.submit = function(song) {
-				//save song so 'back' button works
+			$scope.next = function(song) {
+				//create new section
+				$scope.song.sections.push({
+					name: 'Section Name',
+					measures:[
+						{
+							id: 0,
+							rows: []
+						}
+					],
+					bpm: 120,
+					timeSig: 4,
+					sectionColor: null
+				});
+				//save to songModel
 				songModel.saveSong(song).then(function(song) {
-					$scope.song = song;
-					$location.path('/create/' + song._id);
+					$scope.currentSection = song.sections[song.sections.length-1];
+					//add section._id
+					$location.path('/create/' + song._id + '/' + $scope.currentSection._id);
 				});
 			};
 

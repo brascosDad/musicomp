@@ -50,6 +50,7 @@
 
 		$scope.createNewFrom = function (song,index) {
 			
+			$scope.dupeSection(index);
 			songModel.saveSong(song).then(function(song) {
 				$scope.song = song;
 				$scope.currentSection = song.sections[index];

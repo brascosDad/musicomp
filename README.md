@@ -8,10 +8,12 @@ Service to provide a band with a way to compose song ideas in a structured forma
 2. Complete the remaining UI functional requirements
 	a. edit section DONE
 	b. create new from DONE
-	c. delete functionality
+	c. delete functionality DONE
 3. Add travis CI support, code coverage, & code climate information?
 4. Cleanup package.json dependencies
 5. Make sure create controller is updating URI with section change
+6. Need to add save functionality to Arrange Ctrl functions
+7. Refactor ArrangeCtrl using lodash
 
 #### sample config.js
 module.exports = {

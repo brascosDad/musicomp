@@ -28,7 +28,9 @@
                     setSectionId = function() { 
                         if (sectionId) {
                             $scope.currentSection = _.find($scope.song.sections, {_id: sectionId});
-                        }
+                            $scope.currentSection.sectionColor = $scope.setColor();
+                            //$scope.changeSignature();
+                        }                        
                     };
 
                 //if the browser is refreshed

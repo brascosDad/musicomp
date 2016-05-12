@@ -1,13 +1,13 @@
 <md-content>
 	<md-list>
 		<md-subheader>Songs</md-subheader>
-		<md-list-item class='md-3-line' data-ng-repeat='song in songs track by $index'>
+		<md-list-item class='md-3-line' data-ng-repeat='song in songs track by $index' data-ng-mouseenter='showButtons=true' data-ng-mouseleave='showButtons=false'>
 			
 				<div class='md-list-item-text' layout='column' aria-label='{{song.title}}'>
 					<a href="#/arrange/{{song._id}}"><h3>{{ song.title }}</h3></a>
 					<p>Created: {{ song.createdAt | date:shortDate }}</p>
 				</div>
-				<div class='song-title-options'>
+				<div class='song-title-options' data-ng-show='showButtons'>
 					<a href="#/define/{{song._id}}"><md-button>
 						<md-icon class='material-icons'>edit</md-icon>
 					</md-button></a>

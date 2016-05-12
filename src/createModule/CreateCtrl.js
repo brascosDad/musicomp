@@ -7,6 +7,15 @@
 		self.isOpen = false;
 		self.hover = true;
 
+		$scope.setColor = function () {
+			var letters = '0123456789ABCDEF'.split(''),
+				color = '#';
+			for (var i = 0; i < 6; i++) {
+					color += letters[Math.floor(Math.random() * 16)];
+				}
+				return color;
+		};
+
 		songModel.addSongToScope($scope);
 
 		$scope.beats = ['1','+','2','+','3','+','4','+','5','+','6','+','7','+'];
@@ -91,25 +100,10 @@
 			}
 		};
 
-		$scope.setColor = function () {
-			var letters = '0123456789ABCDEF'.split(''),
-				color = '#';
-			for (var i = 0; i < 6; i++) {
-					color += letters[Math.floor(Math.random() * 16)];
-				}
-				return color;
-		};
-
 		$scope.newSection = function () {
 			//set that color to sectionColor
 			$scope.song.sections.push({
-				name: 'New Section',
-				measures:[
-					{
-						id: 0,
-						rows: []
-					}
-				],
+				name: 'Section Name',
 				bpm: 120,
 				timeSig: 4,
 				sectionColor: null
@@ -133,7 +127,7 @@
 		$scope.$watch("currentSection.timeSig", function(newValue, oldValue) {
 
 			if (!$scope.changedSection) {
-				if (newValue && oldValue && parseInt(newValue, 10) !== parseInt(oldValue, 10)) {
+				if (($scope.currentSection && !$scope.currentSection.measures) || (newValue && oldValue && parseInt(newValue, 10) !== parseInt(oldValue, 10))) {
 					$scope.changeSignature();
 				}
 			} else {

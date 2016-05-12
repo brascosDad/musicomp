@@ -1,22 +1,21 @@
 <div class='create-container'>
-	<div class='create-top-head' layout='row' layout-align='center center'>
-		<div class='mdl-selectfield' layout='column'>
-        <label class='section-pick' ng-hide='currentSection.name'>Pick Section</label>
-        	<select data-ng-model="currentSection" data-ng-options='section as section.name for section in song.sections' data-ng-change="changedSection = !changedSection">
-        	</select>
-          <md-input-container data-ng-show='editName'>
-            <label>Section Name</label>
-            <input data-ng-model='currentSection.name'>
-          </md-input-container>
+	<div class='create-top-head' layout='column' layout-align='center center'>
+    <md-input-container>
+      <label>Section Name</label>
+      <input data-ng-model='currentSection.name'>
+    </md-input-container>
+		<div class='mdl-selectfield' data-ng-if='showDropdown' layout='column'>
+      <label class='section-pick'>Pick Section</label>
+      <select data-ng-model="currentSection" data-ng-options='section as section.name for section in song.sections' data-ng-change="changedSection = !changedSection">
+      </select>
+          
     </div>
-
-    <md-button aria-label="edit name" class="md-accent md-fab md-raised md-mini" data-ng-click='editName=!editName'>
+    <!-- <md-button aria-label="edit name" class="md-accent md-fab md-raised md-mini" data-ng-click='editName=!editName'>
         <md-icon class='material-icons'>edit</md-icon>
         <md-tooltip md-direction="bottom">Edit Name</md-tooltip>
-      </md-button>
+      </md-button> -->
 
-    <md-button aria-label="create new section" class="md-accent md-raised" data-ng-click='newSection()' style='margin-left: 10%'>Create New</md-button>
-		
+    <!-- <md-button aria-label="create new section" class="md-accent md-raised" data-ng-click='newSection()' style='margin-left: 10%'>Create New</md-button> -->		
 	</div>
 
 	<md-divider></md-divider>

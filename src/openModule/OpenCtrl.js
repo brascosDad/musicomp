@@ -50,10 +50,8 @@
 			};
 
 			$scope.createNewSong = function () {
-
 				//create new song and push result to list via promise object
-				songModel.saveSong({ title: 'enter name' }).then(function(song) {
-					$scope.songs.push(song);
+				songModel.saveSong({ title: 'Enter Name' }).then(function(song) {
 					$location.path('/define/' + song._id);
 				});
 			};
