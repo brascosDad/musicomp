@@ -24,18 +24,7 @@
 
 			$scope.next = function(song) {
 				//create new section
-				$scope.song.sections.push({
-					name: 'Section Name',
-					measures:[
-						{
-							id: 0,
-							rows: []
-						}
-					],
-					bpm: 120,
-					timeSig: 4,
-					sectionColor: null
-				});
+				songModel.newSection($scope);
 				//save to songModel
 				songModel.saveSong(song).then(function(song) {
 					$scope.currentSection = song.sections[song.sections.length-1];

@@ -6,15 +6,16 @@ Service to provide a band with a way to compose song ideas in a structured forma
 ## TODO
 1. Add proper code coverage with jasmine (server & client)
 2. Complete the remaining UI functional requirements
-	a. edit section DONE
-	b. create new from DONE
-	c. delete functionality DONE
+	a. turn sidenav into home button
+	b. fix create flyout to be perm open (footer nav)
+	c. move time sig in view
+	d. 
 3. Add travis CI support, code coverage, & code climate information?
 4. Cleanup package.json dependencies
-5. Make sure create controller is updating URI with section change
-6. Need to add save functionality to Arrange Ctrl functions
-7. Refactor ArrangeCtrl using lodash
-8. Use client-side songModel to build new section (since it's in 2 places)
+5. 
+6. 
+7. (OPT)Refactor ArrangeCtrl using lodash
+8. (OPT)Make sure create controller is updating URI with section change
 
 #### sample config.js
 module.exports = {

@@ -113,18 +113,7 @@
 
 			$scope.newSection = function () {
 				//set that color to sectionColor
-				$scope.song.sections.push({
-					name: 'Section Name',
-					measures:[
-						{
-							id: 0,
-							rows: []
-						}
-					],
-					bpm: 120,
-					timeSig: 4,
-					sectionColor: null
-				});
+				songModel.newSection($scope);
 
 				$scope.currentSection = $scope.song.sections[$scope.song.sections.length-1];
 				//create random color

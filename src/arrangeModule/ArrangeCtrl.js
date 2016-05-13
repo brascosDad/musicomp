@@ -78,6 +78,13 @@
 				dupe = array[index];
 				array.push(dupe);
 		};
+
+		$scope.doneGoHome = function (song) {
+				//create new song and push result to list via promise object
+				songModel.saveSong(song).then(function() {
+					$location.path('/open');
+				});
+			};
 	}]);
 }());
 

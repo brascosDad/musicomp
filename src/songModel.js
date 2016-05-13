@@ -8,6 +8,22 @@
                 return this;
             };
 
+            Model.prototype.newSection = function($scope) {
+                //push new section into song.sections
+                $scope.song.sections.push({
+                    name: '',
+                    measures:[
+                        {
+                            id: 0,
+                            rows: []
+                        }
+                    ],
+                    bpm: 120,
+                    timeSig: 4,
+                    sectionColor: null
+                });
+            };
+
             Model.prototype.getSongs = function(searchObj) {
 
                 var self = this,
