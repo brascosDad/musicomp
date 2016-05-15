@@ -12,28 +12,38 @@
 
 			getSongs();
 
-			$scope.menuItems = [
-				{
-					name: 'Home',
-					iconName: 'home',
-					href: '#open'
-				},
-				{
-					name: 'Song Info',
-					iconName: 'edit',
-					href: '#define'
-				},
-				{
-					name: 'Create',
-					iconName: 'code',
-					href: '#create'
-				},
-				{
-					name: 'Arrange',
-					iconName: 'sort',
-					href: '#arrange'
-				}
-			];
+			$scope.goHome = function(song) {
+				if (song) {
+					songModel.saveSong(song).then(function() {
+					$location.path('/');
+				});
+				} else {
+					$location.path('/');
+				}				
+			};
+
+			// $scope.menuItems = [
+			// 	{
+			// 		name: 'Home',
+			// 		iconName: 'home',
+			// 		href: '#open'
+			// 	},
+			// 	{
+			// 		name: 'Song Info',
+			// 		iconName: 'edit',
+			// 		href: '#define'
+			// 	},
+			// 	{
+			// 		name: 'Create',
+			// 		iconName: 'code',
+			// 		href: '#create'
+			// 	},
+			// 	{
+			// 		name: 'Arrange',
+			// 		iconName: 'sort',
+			// 		href: '#arrange'
+			// 	}
+			// ];
 			// $scope.arrangementView = function (index) {
 			// 	$location.path('/arrange/' + $scope.songs[index]._id);
 			// };
@@ -56,9 +66,9 @@
 				});
 			};
 
-			$scope.toggleMenu = function () {
-				$mdSidenav('left').toggle();
-			};
+			// $scope.toggleMenu = function () {
+			// 	$mdSidenav('left').toggle();
+			// };
 	}]);
 }());
 

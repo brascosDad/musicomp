@@ -1,8 +1,7 @@
 (function() {
 	"use strict";
 	angular.module('musiComp').controller('ArrangeCtrl', ['$scope','$routeParams', '$mdDialog', '$location', 'songModel', function($scope, $routeParams, $mdDialog, $location, songModel) {
-		
-		
+				
 		songModel.addSongToScope($scope);
 
 		$scope.blockClass = function(value) {

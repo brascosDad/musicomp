@@ -50,6 +50,24 @@ select:focus {
 	margin-top: 15px;
 }
 
+.create-form-input {
+	height: 6em;
+}
+
+.bpm-slider {
+	width: 50%;
+}
+
+.bpm-input {
+	/*margin: 0 5%;*/
+	/*width: 20%;*/
+	padding-left: 7%;
+}
+
+.bpm-input input {
+	width: 80%;
+}
+
 .create-timesig-select {
 	padding: 5% 5%;
 }
@@ -61,7 +79,7 @@ select:focus {
 
 div.member-div {
 	margin-top: 40px;
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 	/*transform: rotate(-90deg);*/
 	/*height: 120px;*/
 }
@@ -111,11 +129,11 @@ div.table-container {
 	/*margin-top: 20px;*/
 }
 .measure-header {
-	background-color: black;
+	background-color: #444444;
 
-	h2 {
+	h1 {
 		font-family: 'Oleo Script', cursive;
-		color: $off-white;
+		color: $off-white; 
 		margin: .5em 0;
 		}
 }
@@ -150,4 +168,8 @@ div.music-block {
 
 .create-fab {
 	padding: 5% 0 10% 0;
+}
+
+.create-bottom-toolbar {
+	/*padding-bottom: 2%;*/
 }
