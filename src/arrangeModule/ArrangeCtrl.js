@@ -22,7 +22,7 @@
 		$scope.sectionUp = function (index) {
 			var array = $scope.song.sections,
 				temp = array[index-1];
-			if (array.length > 1 && index != 0) {				
+			if (array.length > 1 && index !== 0) {				
 				array[index-1] = array[index];
 				array[index] = temp;
 			}
@@ -83,7 +83,13 @@
 				songModel.saveSong(song).then(function() {
 					$location.path('/open');
 				});
-			};
+		};
+
+		return {
+			getGreeting: function(name) {
+				return "Hello" + name;
+			}
+		};
 	}]);
 }());
 

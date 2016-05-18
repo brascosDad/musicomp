@@ -11,7 +11,7 @@ Service to provide a band with a way to compose song ideas in a structured forma
 	c. 
 	d. 
 3. Add travis CI support, code coverage, & code climate information?
-4. Cleanup package.json dependencies
+4. 
 5. arrange page needs refresh to display correct song
 6. 
 7. (OPT)Refactor ArrangeCtrl using lodash

@@ -70,7 +70,7 @@
 					rows[rowIndex] = { chord: null, blocks: blocks };
 				});
 
-				return rows
+				return rows;
 			};
 
 			$scope.changeSignature = function(hasChanged) {
