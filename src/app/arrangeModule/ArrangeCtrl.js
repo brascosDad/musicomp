@@ -85,10 +85,8 @@
 				});
 		};
 
-		return {
-			getGreeting: function(name) {
-				return "Hello" + name;
-			}
+		$scope.getGreeting = function(name) {
+				return "Hello " + name
 		};
 	}]);
 }());

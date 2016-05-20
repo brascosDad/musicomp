@@ -11,5 +11,5 @@ var gulp = require('gulp'),
 	                return path.replace(base, '').replace('/templates', '');
 	            }
 	        }))  
-	        .pipe(gulp.dest('./src'));
+	        .pipe(gulp.dest('./src/app'));
 	});

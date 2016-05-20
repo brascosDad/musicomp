@@ -22,35 +22,7 @@
 				}				
 			};
 
-			// $scope.menuItems = [
-			// 	{
-			// 		name: 'Home',
-			// 		iconName: 'home',
-			// 		href: '#open'
-			// 	},
-			// 	{
-			// 		name: 'Song Info',
-			// 		iconName: 'edit',
-			// 		href: '#define'
-			// 	},
-			// 	{
-			// 		name: 'Create',
-			// 		iconName: 'code',
-			// 		href: '#create'
-			// 	},
-			// 	{
-			// 		name: 'Arrange',
-			// 		iconName: 'sort',
-			// 		href: '#arrange'
-			// 	}
-			// ];
-			// $scope.arrangementView = function (index) {
-			// 	$location.path('/arrange/' + $scope.songs[index]._id);
-			// };
-
-			// $scope.editSong = function (index) {
-			// 	$location.path('/define/' + $scope.songs[index]._id);
-			// }
+			
 			$scope.deleteSong = function (song) {
 				songModel.deleteSong(song).then(function(response) {
 					if(response.wasSuccessful && response.id === song._id) {
@@ -65,10 +37,6 @@
 					$location.path('/define/' + song._id);
 				});
 			};
-
-			// $scope.toggleMenu = function () {
-			// 	$mdSidenav('left').toggle();
-			// };
 	}]);
 }());
 

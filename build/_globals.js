@@ -4,10 +4,9 @@ module.exports = {
     isProduction: process.env.npm_config_isProduction,
     getAppSources: function() {
     	return [
-            "./src/app.js",
-            "!./src/**/*.spec.js",
-            "!./src/server/**/*.*",
-            "./src/**/*.js"
+            "./src/app/app.js",
+            "!./src/app/**/*.spec.js",
+            "./src/app/**/*.js"
         ];
     },
     getLibSources: function() {
@@ -19,7 +18,12 @@ module.exports = {
             "./node_modules/angular-material/angular-material.js",
             "./node_modules/angular-messages/angular-messages.js",
             "./node_modules/angular-resource/angular-resource.js",
-            "./node_modules/lodash/lodash.min.js",
+            "./node_modules/lodash/lodash.js",
+        ];
+    },
+    getLibCssSources: function() {
+        return [
+            './node_modules/angular-material/angular-material.css' 
         ];
     }
 };

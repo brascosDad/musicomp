@@ -1,6 +1,12 @@
 "use strict";
 
-const logger = require("./logger");
+const logger = require("./logger"),
+        handleError = (res, status, message) => {
+            res.status(status);
+            res.send({ error: "An error occurred.  Please contact the system administrator." });
+            logger.instance().error(new Date().toJSON(), message);
+            console.error(message);
+        };
 
 class GlobalErrorHandler {
 
@@ -16,9 +22,7 @@ class GlobalErrorHandler {
     registerNotFoundHandler() {
         //after all known routes, redirect to error if route not supported
         this.server.use((req, res) => {
-            res.status(404);
-            res.redirect(302, "/#/error");
-            logger.instance().error(new Date().toJSON(), " route not found error");
+            handleError(res, 404, ' 404 not found error');
         });
     }
 
@@ -26,10 +30,7 @@ class GlobalErrorHandler {
         //catch all error handling
         this.server.use((err, req, res, next) => {
             const status = err.name === "UnauthorizedError" ? 401 : 500;
-            logger.instance().error(new Date().toJSON(), err.stack);
-            console.error(err.stack);
-            res.status(status);
-            res.send({ error: "An error occurred.  Please contact the system administrator." });
+            handleError(res, status, err.stack);
             next(err);
         });
     }

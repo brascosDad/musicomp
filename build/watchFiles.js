@@ -17,8 +17,8 @@ var globals = require("./_globals"),
 
 			gulp.watch(serverPath, server.start.bind(server));
 
-			gulp.watch('src/**/*.scss', ['compileSass']);
+			gulp.watch('src/public/scss/*.scss', ['compileSass']);
 			gulp.watch('src/**/*.html', ['watchHtmlFiles']);
-			gulp.watch(['src/**/*.js', '!src/server/**/*.js'], ['bundle-app']);
+			gulp.watch(['src/app/**/*.js'], ['bundle-app']);
 		}
 	}); 

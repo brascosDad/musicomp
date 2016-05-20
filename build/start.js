@@ -21,8 +21,8 @@ gulp.task("start", function(cb) {
         "clean",
         "templates",
         ['bundle-lib', 'bundle-app', 'compileSass', 'pipeMaterialCss'],
-        "copy",
         "start-mongo-database",
+        "copy",
         "watchFiles",
         cb);
 

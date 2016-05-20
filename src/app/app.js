@@ -5,27 +5,27 @@
   			"$routeProvider",'$mdThemingProvider', function (router, $mdThemingProvider){
   				router.when('/', {  
   					controller: "OpenCtrl",	
-    			  templateUrl: "openModule/_open.html"  
+    			  templateUrl: "app/openModule/_open.html"  
     			})   
 
           .when('/define/:songId', {
             controller: "DefineCtrl",
-            templateUrl: "defineModule/_define.html"
+            templateUrl: "app/defineModule/_define.html"
           }) 
 
           .when('/arrange/:songId', {
             controller: "ArrangeCtrl",
-            templateUrl: "arrangeModule/_arrange.html"
+            templateUrl: "app/arrangeModule/_arrange.html"
           })
 
           .when('/create/:songId', {
             controller: "CreateCtrl",
-            templateUrl: "createModule/_create.html"
+            templateUrl: "app/createModule/_create.html"
           })
 
           .when('/create/:songId/:sectionId', {
               controller: "CreateCtrl",
-              templateUrl: "createModule/_create.html"
+              templateUrl: "app/createModule/_create.html"
           })
           .otherwise({
             redirectTo: '/'

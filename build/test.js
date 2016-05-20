@@ -19,10 +19,10 @@ var gulp = require('gulp'),
 			};
 		}
 
-		return gulp.src(['./src/**/*.js','!./src/server/**/*.*'])
-			.pipe(jshint())
-			.pipe(jshint.reporter(stylish))
-			.pipe(jshint.reporter('fail'))
+		return gulp.src(['./src/app/**/*.js','!./src/server/server.js'])
+			//.pipe(jshint())
+			//.pipe(jshint.reporter(stylish))
+			//.pipe(jshint.reporter('fail'))
 			.on('end', function() {
 				new karmaServer(config).start();
 			});

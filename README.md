@@ -13,7 +13,7 @@ Service to provide a band with a way to compose song ideas in a structured forma
 3. Add travis CI support, code coverage, & code climate information?
 4. 
 5. arrange page needs refresh to display correct song
-6. 
+6. (OPT)refactor bundle task/compileSass/pipeMaterialCss to use globals
 7. (OPT)Refactor ArrangeCtrl using lodash
 8. (OPT)Make sure create controller is updating URI with section change
 

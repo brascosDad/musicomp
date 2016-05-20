@@ -1,7 +1,7 @@
 (function() {
 	"use strict";
-	angular.module('musiComp').controller('CreateCtrl', ['$scope', '$routeParams', '$location', '$mdDialog', 'SongData', 'songModel',
-		function($scope, $routeParams, $location, $mdDialog, SongData, songModel) {
+	angular.module('musiComp').controller('CreateCtrl', ['$scope', '$routeParams', '$location', '$mdDialog', 'songModel',
+		function($scope, $routeParams, $location, $mdDialog, songModel) {
 		
 			var self = this,
 				init = function() {

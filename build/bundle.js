@@ -1,7 +1,29 @@
-var gulp = require('gulp'),
+var globals = require("./_globals"),
+	gulp = require('gulp'),
 	concat = require('gulp-concat'),
-	sourcemaps = require('gulp-sourcemaps');
-	
+	uglify = require('gulp-uglify'),
+	sourcemaps = require('gulp-sourcemaps'),
+	gulpUtil = require('gulp-util');
+
+	gulp.task('bundle-app', function() {
+
+		var sources = ['src/app/app.js', 'src/app/**/*.js', '!./src/app/**/*.spec.js'];
+
+		if (!globals.isProduction) {
+			return gulp.src(sources)
+				.pipe(concat('app.min.js'))
+				.pipe(gulp.dest('./dist'));
+		} else {
+			return gulp.src(sources)
+				.pipe(sourcemaps.init())
+				.pipe(concat('app.min.js'))
+				.pipe(uglify())
+				.pipe(sourcemaps.write('./'))
+				.pipe(gulp.dest('./dist'));
+		}
+
+	});
+
 	gulp.task('bundle-lib', function() {
 		return gulp.src(['node_modules/angular/angular.min.js', 
 						'node_modules/angular-route/angular-route.min.js', 
@@ -17,3 +39,5 @@ var gulp = require('gulp'),
 			.pipe(sourcemaps.write('./'))	
 			.pipe(gulp.dest('./dist'));
 	});
+
+	
