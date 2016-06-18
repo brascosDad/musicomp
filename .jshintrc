@@ -1,0 +1,22 @@
+{
+  "node": true,
+  "esnext": true,
+  "undef": true,
+  "eqeqeq": true,
+  "globals": {
+    "angular": true,
+    "_": true,
+    "beforeEach": true,
+    "describe": true,
+    "inject": true,
+    "it": true,
+    "expect": true,
+    "spyOn": true,
+    "jasmine": true,
+    "FileReader": true,
+    "afterEach": true,
+    "Spinner": true,
+    "XMLHttpRequest": true,
+    "window": true
+  }
+}

@@ -112,7 +112,7 @@
 			};
 
 			$scope.newSection = function () {
-				//set that color to sectionColor
+				
 				songModel.newSection($scope);
 
 				$scope.currentSection = $scope.song.sections[$scope.song.sections.length-1];

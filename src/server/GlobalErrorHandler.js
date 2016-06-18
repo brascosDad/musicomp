@@ -1,6 +1,6 @@
 "use strict";
 
-const logger = require("./logger"),
+const   logger = require("./logger"),
         handleError = (res, status, message) => {
             res.status(status);
             res.send({ error: "An error occurred.  Please contact the system administrator." });

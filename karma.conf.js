@@ -7,7 +7,7 @@ var globals = require('./build/_globals.js'),
     appFiles = globals.getAppSources();
 
 libFiles.push('./node_modules/angular-mocks/angular-mocks.js');
-appFiles = _.without(appFiles, "!./src/app/**/*.spec.js");
+appFiles = _.without(appFiles, ["!./src/app/**/*.spec.js","./src/app/templates.js"]);
 files = _.union(libFiles, appFiles);
 
 
@@ -16,7 +16,7 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
     files: files,
     preprocessors: {
-        ".src/**/!(*.spec).js": ["coverage"]
+        "./src/**/!(*.spec).js": ["coverage"]
     },
     coverageReporter: {
         type: 'lcovonly' //change from text to text-summary for details or summary

@@ -47,8 +47,13 @@
 			});				
 		};
 
-		$scope.createNewFrom = function (song,index) {
-			
+		$scope.dupeSection = function (index) {
+			var array = $scope.song.sections,
+				dupe = array[index];
+				array.push(dupe);
+		};
+
+		$scope.createNewFrom = function (song,index) {			
 			$scope.dupeSection(index);
 			songModel.saveSong(song).then(function(song) {
 				$scope.song = song;
@@ -72,12 +77,6 @@
           	});			
 		};
 
-		$scope.dupeSection = function (index) {
-			var array = $scope.song.sections,
-				dupe = array[index];
-				array.push(dupe);
-		};
-
 		$scope.doneGoHome = function (song) {
 				//create new song and push result to list via promise object
 				songModel.saveSong(song).then(function() {
@@ -85,9 +84,9 @@
 				});
 		};
 
-		$scope.getGreeting = function(name) {
-				return "Hello " + name
-		};
+		// $scope.getGreeting = function(name) {
+		// 		return "Hello " + name
+		// };
 	}]);
 }());
 

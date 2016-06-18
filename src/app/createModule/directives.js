@@ -5,7 +5,7 @@
 			restrict: 'A',
 			replace: false,
 			scope: {
-				block: '='
+				block: '=' 
 			},
 			link: function(scope, elem, attrs) {
 				var blockColors = ['orange', 'blue', 'yellow', 'green', 'purple', 'red', 'brown', 'olive'],

@@ -4,7 +4,7 @@ module.exports = {
     isProduction: process.env.npm_config_isProduction,
     getAppSources: function() {
     	return [
-            "./src/app/app.js",
+            "!./src/app/templates.js",
             "!./src/app/**/*.spec.js",
             "./src/app/**/*.js"
         ];
