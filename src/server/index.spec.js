@@ -31,7 +31,7 @@ describe("Server Tests", () => {
                 }
             }
         });
-        mockery.registerMock("./router", class {
+        mockery.registerMock("./Router", class {
             constructor(express, server) {
                 console.log("express is injected");
                 console.log("server is injected");
@@ -78,16 +78,18 @@ describe("Server Tests", () => {
         globals.isProduction = false;
         let server = require("./index");
 
-        expect(consoleLog.length).toEqual(9);
+        expect(consoleLog.length).toEqual(11);
         expect(consoleLog[0]).toEqual("express is instantiated");
         expect(consoleLog[1]).toEqual("livereload is instantiated");
         expect(consoleLog[2]).toEqual("using object");
-        expect(consoleLog[3]).toEqual("express is injected");        
-        expect(consoleLog[4]).toEqual("server is injected");
-        expect(consoleLog[5]).toEqual("mockDatabaseUrl");
-        expect(consoleLog[6]).toEqual("listening on port: 8888");        
-        expect(consoleLog[7]).toEqual("development mode, using liveReload");        
-        expect(consoleLog[8]).toEqual("Delivery Tracker server is now up...http://localhost:8888");
+        expect(consoleLog[3]).toEqual("using connect-livereload");        
+        expect(consoleLog[4]).toEqual("express is injected");
+        expect(consoleLog[5]).toEqual("server is injected");
+        expect(consoleLog[6]).toEqual("using object");
+        expect(consoleLog[7]).toEqual("using object");
+        expect(consoleLog[8]).toEqual("mongodb://T$5hAdm99n:R22$Du$8w@localhost:31078/musicomp?authSource=admin");
+        expect(consoleLog[9]).toEqual("listening on port: 9000");        
+        expect(consoleLog[10]).toEqual("MusiComp is up and running on http://localhost:9000");
 
         globals.isProduction = isProduction;
     });

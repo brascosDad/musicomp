@@ -15,7 +15,7 @@ if (!globals.isProduction) {
 	console.log("using connect-livereload");
 }
 
-new Router(server, express);
+new Router(express, server);
 new GlobalErrorHandler({ server: server });
 mongoose.Promise = Promise;
 mongoose.connect(config.databaseUrl);

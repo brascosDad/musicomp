@@ -41,9 +41,9 @@ describe("Logs Controller Tests", () => {
     });
 
     it("should add logs properly", () => {
-        let LogsController = require("./logsController"),
+        let LogsController = require("./LogsController"),
             logs = new LogsController(),
-            request = { body: error, user: { _id: 2 } },
+            request = { body: error, song: { _id: 2 } },
             response = { send: function(data) { errorQueue.push(data); } };
 
         logs.saveLog(request, response);

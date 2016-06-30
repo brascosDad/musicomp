@@ -12,7 +12,8 @@ describe("Songs Controller Tests", () => {
     beforeEach(() => {
 
         error = undefined;
-        song = { title: "newfoo" };
+        // song = { title: "newfoo" };
+        song = { title: "foo1" };
         songQueue = [];
 
         //make sure module can be loaded for each test
@@ -29,14 +30,37 @@ describe("Songs Controller Tests", () => {
                 _.assign(this, data);
             }
 
-            retrieve(searchObj) {
+            static find(searchObj) {
                 return {
                     exec: () => {
                         return {
                             then: (fn) => {
 
-                                const songs = [{ title:"foo1" }, { title: "foo2" }];
+                                const songs = [{ title: 'foo2' }, { title: 'foo3' }];
                                 fn(songs);
+
+                                return {
+                                    "catch": (fn) => {
+
+                                        if (error)  {
+                                            fn({});
+                                        }
+                                    }
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+
+            static findById(searchObj) {
+                return {
+                    exec: () => {
+                        return {
+                            then: (fn) => {
+
+                                // const songs = [{ title:"foo1" }, { title: "foo2" }];
+                                // fn(songs);
 
                                 return {
                                     "catch": (fn) => {
@@ -72,12 +96,21 @@ describe("Songs Controller Tests", () => {
             }
 
             //pass in id to delete func?
-            delete() {
+            static findByIdAndRemove(id) {
                 return {
                     exec: () => {
                         return {
                             then: (fn) => {
-                                fn({})
+                                fn({});
+
+                                return {
+                                    "catch": (fn) => {
+
+                                        if (error)  {
+                                            fn({});
+                                        }
+                                    }
+                                };
                             }
                         }
                     }
@@ -104,23 +137,34 @@ describe("Songs Controller Tests", () => {
     it("should get all songs properly", () => {
         let SongsController = require("./SongsController"),
             songs = new SongsController(),
-            request = { params:{ id: null } },
+            request = { params: { id: null } },
             response = { send: function(data) { songQueue.push(data); } };
 
         songs.getSongs(request, response);
 
-        expect(songQueue.length).toEqual(2);
-        expect(songQueue[0].d.title).toEqual("foo1");
+        // console.log(songQueue[0].d);
+        expect(songQueue.length).toEqual(1);
+        expect(songQueue[0].d[0].title).toEqual("foo2");
     });
 
-    it("should get song by id", () => {
+    it("should delete song by id", () => {
+        let SongsController = require("./SongsController"),
+            songs = new SongsController(),
+            request = { params: { id: 1} },
+            response = { send: function(data) { songQueue.push(data); } };
+
+        songs.deleteSong(request,response);
+
+        console.log(songQueue[0].d);
+        expect(songQueue.length).toEqual(1);
+        expect(songQueue[0].d.wasSuccessful).toBe(true);
 
     });
 
     it("should send error when attempting to get songs", () => {
         let SongsController = require("./SongsController"),
             songs = new SongsController(),
-            request = { body: song },
+            request = { body: song, params:{ id: null } },
             response = { send: function(data) { songQueue.push(data); } };
 
         const errorMessage = "An error occurred.  Please contact the system administrator.";
@@ -128,7 +172,7 @@ describe("Songs Controller Tests", () => {
         error = true;
         songs.getSongs(request, response);
 
-        expect(songQueue.length).toEqual(3);
+        expect(songQueue.length).toEqual(2);
         expect(songQueue[1].d.error).toEqual(errorMessage);
 
     });

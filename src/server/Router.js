@@ -5,7 +5,7 @@ const bodyParser = require("body-parser"),
 	logs = new (require("./LogsController"))();
 
 class Router {
-	constructor(server, express) {
+	constructor(express, server) {
 
 		server.use(express.static('dist'));
 		server.use(bodyParser.json({}));

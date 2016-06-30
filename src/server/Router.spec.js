@@ -56,7 +56,7 @@ describe("Router Tests", () => {
     });
 
     it("should configure router properly", () => {
-        let Router = require("./router"),
+        let Router = require("./Router"),
             express = { "static": (config) => { configQueue.push(config); }},
             server = {
                 use: (config) => { configQueue.push(config); },
@@ -66,6 +66,9 @@ describe("Router Tests", () => {
                     let Pipe = class {
                         post (config) { configQueue.push("post: " + config); return this; }
                         get (config) { configQueue.push("get: " + config); return this; }
+                        put (config) { configQueue.push("put: " + config); return this; }
+                        delete (config) { configQueue.push("delete: " + config); return this; }
+                        
                     };
 
                     return new Pipe();
@@ -73,20 +76,23 @@ describe("Router Tests", () => {
             },
             router = new Router(express, server);
 
-        expect(configQueue.length).toEqual(13);
+        expect(configQueue.length).toEqual(15);
         expect(configQueue[0]).toEqual("dist");
-        expect(configQueue[1]).toEqual({});
-        expect(configQueue[2]).toEqual("json being used");
-        expect(configQueue[3]).toEqual({ extended: false });
-        expect(configQueue[4]).toEqual("route: /api/songs/:id");
-        expect(configQueue[5]).toEqual("get: getSongs(request, response) {}");
-        expect(configQueue[6]).toEqual("delete: deleteSong(request, response) {}");
-        expect(configQueue[7]).toEqual("route: /api/songs");
-        expect(configQueue[8]).toEqual("post: saveSong(request, response) {}");
-        expect(configQueue[9]).toEqual("get: getSongs(request, response) {}");
-        expect(configQueue[10]).toEqual("put: saveSong(request, response) {}");
-        expect(configQueue[11]).toEqual("route: /api/logs");
-        expect(configQueue[12]).toEqual("post: saveLog(request, response) {}");        
+        expect(configQueue[1]).toEqual(undefined);
+        expect(configQueue[2]).toEqual({});
+        expect(configQueue[3]).toEqual("json being used");        
+        expect(configQueue[4]).toEqual({ extended: false });
+        expect(configQueue[5]).toEqual("urlencoded being used");
+        expect(configQueue[6]).toEqual("route: /api/songs/:id");
+        expect(configQueue[7]).toEqual("get: getSongs(request, response) {}");
+        expect(configQueue[8]).toEqual("delete: deleteSong(request, response) {}");
+        expect(configQueue[9]).toEqual("route: /api/songs");
+        expect(configQueue[10]).toEqual("post: saveSong(request, response) {}");
+        expect(configQueue[11]).toEqual("get: getSongs(request, response) {}");
+        expect(configQueue[12]).toEqual("put: saveSong(request, response) {}");
+        expect(configQueue[13]).toEqual("route: /api/logs");
+        expect(configQueue[14]).toEqual("post: saveLog(request, response) {}");
+                
     });
 
     // it("should handle jwt security properly if no auth token is provided", () => {
