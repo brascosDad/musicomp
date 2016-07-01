@@ -6,11 +6,11 @@ branches:
   only:
     - master
 
-# script:
-#   - gulp ngTemplates test --prod
+script:
+  - gulp ngTemplates test --prod
   
-# after_script:
-#   - npm run coveralls
+after_script:
+  - npm run coveralls
 
 notifications:
   email:
