@@ -4,6 +4,9 @@
 [travis-ci-url]: https://travis-ci.org/sunnee5150/musicomp
 [travis-ci-image]: https://api.travis-ci.org/sunnee5150/musicomp.svg
 
+[code-climate-url]: https://codeclimate.com/github/sunnee5150/musicomp
+[code-climate-image]: https://codeclimate.com/github/sunnee5150/musicomp/badges/gpa.svg
+
 [coveralls-url]: https://coveralls.io/github/sunnee5150/musicomp?branch=master
 [coveralls-image]: https://coveralls.io/repos/github/sunnee5150/musicomp/badge.svg?branch=master
 
