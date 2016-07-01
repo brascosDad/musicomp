@@ -46,7 +46,7 @@
     "karma-opera-launcher": "^0.3.0",
     "karma-phantomjs-launcher": "^0.2.1",
     "mockery": "^1.7.0",
-    "phantomjs": "^1.9.18",
+    "phantomjs": "^2.0.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5"
   },
