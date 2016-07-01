@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "a tool to create a song structure",
   "main": "index.js",
+  "engines": {
+    "node": ">= 4.0",
+    "iojs": ">= 3.0",
+    "npm": ">= 2.1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/sunnee5150/musicomp"
   },
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "angular-animate": "^1.4.7",
@@ -48,7 +52,9 @@
   },
   "scripts": {
     "start": "gulp start",
-    "test": "gulp test"
+    "test": "gulp test",
+    "coveralls": "gulp coveralls",
+    "travis": "gulp templates test --prod"
   },
   "dependencies": {
     "angular": "^1.4.6",

@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "4.2"
+
+branches:
+  only:
+    - master
+
+# script:
+#   - gulp ngTemplates test --prod
+  
+# after_script:
+#   - npm run coveralls
+
+notifications:
+  email:
+    recipients:
+      - sunnee5150@gmail.com
