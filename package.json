@@ -58,7 +58,7 @@
     "travis": "gulp templates test --prod"
   },
   "dependencies": {
-    "angular": "^1.4.6",
+    "angular": "^1.4.7",
     "angular-resource": "^1.4.7",
     "angular-route": "^1.4.6",
     "lodash": "^4.12.0",
