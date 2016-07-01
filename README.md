@@ -1,4 +1,8 @@
 # Musicomp
+[![Build Status][travis-ci-image]][travis-ci-url] [![Code Climate][code-climate-image]][code-climate-url] [![Coverage Status][coveralls-image]][coveralls-url]
+
+[travis-ci-url]: https://travis-ci.org/sunnee5150/musicomp
+[travis-ci-image]: https://api.travis-ci.org/sunnee5150/musicomp.svg
  
 ## Description
 Service to provide a band with a way to compose song ideas in a structured format
