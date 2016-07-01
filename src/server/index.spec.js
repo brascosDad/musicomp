@@ -56,7 +56,7 @@ describe("Server Tests", () => {
                 };
             }
         });
-        mockery.registerMock("./config/config", {
+        mockery.registerMock("./config", {
             databaseUrl: "mockDatabaseUrl"
         });
         mockery.registerMock("mongoose", {
