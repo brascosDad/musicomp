@@ -3,6 +3,11 @@
 
 [travis-ci-url]: https://travis-ci.org/sunnee5150/musicomp
 [travis-ci-image]: https://api.travis-ci.org/sunnee5150/musicomp.svg
+
+[coveralls-url]: https://coveralls.io/github/sunnee5150/musicomp?branch=master
+[coveralls-image]: https://coveralls.io/repos/github/sunnee5150/musicomp/badge.svg?branch=master
+
+https://coveralls.io/repos/github/sunnee5150/musicomp/badge.svg?branch=master
  
 ## Description
 Service to provide a band with a way to compose song ideas in a structured format
