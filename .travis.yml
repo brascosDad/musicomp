@@ -7,7 +7,7 @@ branches:
     - master
 
 script:
-  - gulp ngTemplates test --prod
+  - gulp templates test --prod
   
 after_script:
   - npm run coveralls
