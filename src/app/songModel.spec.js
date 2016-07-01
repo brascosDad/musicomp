@@ -3,8 +3,10 @@
 
     var model,
         songs,
+        song,
         timeout,
-        httpMock;
+        httpMock,
+        $rootScope;
 
     beforeEach(module("musiComp"));
 
@@ -18,11 +20,30 @@
                 { _id: 3, title: "Song3"}
             ];
 
-            inject(function (songModel, $timeout, $httpBackend) {
+            song = {
+                _id: 100,
+                title: 'titlefoo',
+                sections: [
+                     { _id: 101, name: "foo" },
+                     { _id: 102, name: "bar" },
+                     { _id: 103, name:"me" }
+                     ]
+            };
+
+            inject(function (songModel, $timeout, $httpBackend, _$rootScope_) {
                 model = songModel;
                 timeout = $timeout;
                 httpMock = $httpBackend;
+                $rootScope = _$rootScope_;
             });
+        });
+
+        it("should create a new section", function() {
+            $rootScope.song = song;
+            model.newSection($rootScope);
+
+            expect($rootScope.song.sections.length).toEqual(4);
+
         });
 
         it("should load songs appropriately from API", function () {
@@ -36,6 +57,30 @@
 
             httpMock.flush();
             timeout.flush();
+
+        });
+
+        it("should add song to scope when songModel.song does not exist", function() {
+            model.song = null;
+
+            httpMock.when("GET", "api/songs").respond({ d: song });
+
+            model.addSongToScope($rootScope).then(function (returnSong) {
+
+                expect(song).toEqual(returnSong);
+            });
+
+        });
+
+        it("should add song to scope when songModel.song does exist", function() {
+            model.song = song;
+
+            // httpMock.when("GET", "api/songs").respond({ d: song });
+
+            model.addSongToScope($rootScope).then(function (returnSong) {
+
+                expect(song).toEqual(returnSong);
+            });
 
         });
 

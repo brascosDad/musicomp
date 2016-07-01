@@ -8,13 +8,13 @@
 			//console.log(value);
 			if(value === 4) {
 				return "block block4";
-			} else if (value == 3) {
+			} else if (value === 3) {
 				return "block block3";
-			} else if (value == 2) {
+			} else if (value === 2) {
 				return "block block2";
-			} else if (value == 6) {
+			} else if (value === 6) {
 				return "block block6";
-			} else if (value == 7) {
+			} else if (value === 7) {
 				return "block block7";
 			}
 		};

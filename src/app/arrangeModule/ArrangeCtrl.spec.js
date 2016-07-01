@@ -53,6 +53,10 @@
 
 		it('assigns the right class to the block', function() {
 			expect($rootScope.blockClass(4)).toEqual('block block4');
+			expect($rootScope.blockClass(3)).toEqual('block block3');
+			expect($rootScope.blockClass(2)).toEqual('block block2');
+			expect($rootScope.blockClass(6)).toEqual('block block6');
+			expect($rootScope.blockClass(7)).toEqual('block block7');
 		});
 
 		it('moves the section up in the song.sections array', function() {

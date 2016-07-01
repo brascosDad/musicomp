@@ -82,6 +82,9 @@
 		it('can go home', function() {
 			$rootScope.goHome(song);
 			expect($location.path).toHaveBeenCalledWith('/');
+			song = null;
+			$rootScope.goHome(song);
+			expect($location.path).toHaveBeenCalledWith('/');
 		});
 
 		it('can delete a song', function() {

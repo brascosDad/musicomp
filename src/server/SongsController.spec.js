@@ -155,7 +155,6 @@ describe("Songs Controller Tests", () => {
 
         songs.deleteSong(request,response);
 
-        console.log(songQueue[0].d);
         expect(songQueue.length).toEqual(1);
         expect(songQueue[0].d.wasSuccessful).toBe(true);
 

@@ -138,7 +138,16 @@
 			expect($location.path).toHaveBeenCalledWith('/arrange/100');
 		});
 
-		//test for $watch on timeSig?
+		it('can watch for changes on timeSig', function() {
+			// console.log($rootScope.currentSection.timeSig);
+			spyOn($rootScope, "changeSignature");
+			$rootScope.$digest();
+			$rootScope.currentSection.timeSig = 3;
+			// console.log($rootScope.currentSection.timeSig);
+			$rootScope.$digest();
+
+			expect($rootScope.changeSignature).toHaveBeenCalled();
+		});
 
 	});
 }());
