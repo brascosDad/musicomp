@@ -53,6 +53,7 @@
   "scripts": {
     "start": "gulp start",
     "test": "gulp test",
+    "build": "gulp build",
     "coveralls": "gulp coveralls",
     "travis": "gulp templates test --prod"
   },

@@ -87,7 +87,7 @@ describe("Server Tests", () => {
         expect(consoleLog[5]).toEqual("server is injected");
         expect(consoleLog[6]).toEqual("using object");
         expect(consoleLog[7]).toEqual("using object");
-        expect(consoleLog[8]).toEqual("mongodb://T$5hAdm99n:R22$Du$8w@localhost:31078/musicomp?authSource=admin");
+        expect(consoleLog[8]).toEqual("mockDatabaseUrl");
         expect(consoleLog[9]).toEqual("listening on port: 9000");        
         expect(consoleLog[10]).toEqual("MusiComp is up and running on http://localhost:9000");
 
