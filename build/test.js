@@ -19,7 +19,7 @@ var gulp = require('gulp'),
 			};
 		}
 
-		return gulp.src(['./src/app/**/*.js', '!./src/app/templates.js'])
+		return gulp.src(["./src/app/**/*.js", "!./src/app/templates.js"])
 			.pipe(jshint())
 			.pipe(jshint.reporter(stylish))
 			.pipe(jshint.reporter('fail'))
@@ -33,8 +33,8 @@ gulp.task('test-client', function() {
 });
 
 gulp.task('pre-test-server', function() {
-	return gulp.src(['./src/server/**/*.js', 
-			'!./src/server/config.js', '!./src/server/**/*.spec.js'])
+	return gulp.src(["./src/server/**/*.js", 
+			"!./src/server/config.js", "!./src/server/**/*.spec.js"])
 		.pipe(jshint())
 		.pipe(jshint.reporter(stylish))
 		.pipe(jshint.reporter('fail'))
@@ -73,11 +73,11 @@ gulp.task('test-server-coverage', ['pre-test-server', 'test-server'], function()
 		reporters.push('text');
 	}
 
-	return gulp.src('./src/server/**/*.spec.js')
+	return gulp.src("./src/server/**/*.spec.js")
 		.pipe(istanbul.writeReports({
 			reporters: reporters,
 			reportOpts: {
-				dir: './coverage/server'
+				dir: "./coverage/server"
 			}
 		}));
 });

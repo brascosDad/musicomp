@@ -48,7 +48,8 @@
     "mockery": "^1.7.0",
     "phantomjs": "^2.0.0",
     "require-dir": "^0.3.0",
-    "run-sequence": "^1.1.5"
+    "run-sequence": "^1.1.5",
+    "yargs": "^4.7.1"
   },
   "scripts": {
     "start": "gulp start",
