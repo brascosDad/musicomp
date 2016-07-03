@@ -52,11 +52,14 @@
     "yargs": "^4.7.1"
   },
   "scripts": {
-    "start": "gulp start",
+    "start": "gulp start --prod",
     "test": "gulp test",
     "build": "gulp build",
     "coveralls": "gulp coveralls",
-    "travis": "gulp templates test --prod"
+    "travis": "gulp templates test --prod",
+    "postinstall": "gulp clean && gulp templates && gulp bundle-lib 
+    && gulp bundle-app && gulp compileSass && gulp pipeMaterialCss
+     && gulp copy"
   },
   "dependencies": {
     "angular": "^1.4.7",
