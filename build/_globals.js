@@ -1,8 +1,6 @@
 //module used to stay DRY for sharing variables/values between tasks
-var argv = require("yargs").argv;
-
 module.exports = {
-    isProduction: argv.prod || argv.production || argv.p,
+    isProduction: process.argv.indexOf("--prod") >= 0,
     getAppSources: function() {
     	return [
             "!./src/app/templates.js",
