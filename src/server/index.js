@@ -18,7 +18,7 @@ if (!globals.isProduction) {
 new Router(express, server);
 new GlobalErrorHandler({ server: server });
 mongoose.Promise = Promise;
-mongoose.connect(config.databaseUrl);
+mongoose.connect(process.env.MONGOLAB_URI || config.databaseUrl);
 
 
 server.listen(9000);
