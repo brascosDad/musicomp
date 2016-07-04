@@ -21,7 +21,5 @@ mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGOLAB_URI || config.databaseUrl);
 
 
-server.listen(process.env.PORT || 9000, function() {
-  console.log('listening on', server.address().port);
-});
+server.listen(process.env.PORT || 9000);
 console.log('MusiComp is up and running on http://localhost:9000');

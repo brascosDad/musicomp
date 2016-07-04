@@ -51,7 +51,7 @@
     "run-sequence": "^1.1.5"
   },
   "scripts": {
-    "start": "gulp start --prod",
+    "start": "gulp start",
     "test": "gulp test",
     "build": "gulp build",
     "coveralls": "gulp coveralls",
