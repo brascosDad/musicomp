@@ -5,8 +5,10 @@ data
 node_modules
 bower_components
 logs
+coverage
 src/server/config.js
 src/templates.js
+app/templates.js
 
 # Compiled source #
 ###################
